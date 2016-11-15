@@ -23,6 +23,12 @@ export function items(state = [], action) {
         case 'ITEMS_FETCH_DATA_SUCCESS':
             return action.items;
 
+        case 'ITEMS_REMOVE_ITEM':
+            return [
+                ...state.slice(0, action.index),
+                ...state.slice(action.index + 1)
+            ];
+
         default:
             return state;
     }

@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { itemsFetchData } from '../actions/items';
+import { itemsFetchData, itemsRemoveItem } from '../actions/items';
 
 class ItemList extends Component {
     componentDidMount() {
@@ -16,11 +16,16 @@ class ItemList extends Component {
             return <p>Loading…</p>;
         }
 
+        if (!this.props.items.length) {
+            return <p>No items to display</p>;
+        }
+
         return (
             <ul>
-                {this.props.items.map((item) => (
+                {this.props.items.map((item, index) => (
                     <li key={item.id}>
                         {item.label}
+                        <button onClick={() => this.props.removeItem(index)}>Remove</button>
                     </li>
                 ))}
             </ul>
@@ -30,6 +35,7 @@ class ItemList extends Component {
 
 ItemList.propTypes = {
     fetchData: PropTypes.func.isRequired,
+    removeItem: PropTypes.func.isRequired,
     items: PropTypes.array.isRequired,
     hasErrored: PropTypes.bool.isRequired,
     isLoading: PropTypes.bool.isRequired
@@ -45,7 +51,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchData: (url) => dispatch(itemsFetchData(url))
+        fetchData: (url) => dispatch(itemsFetchData(url)),
+        removeItem: (index) => dispatch(itemsRemoveItem(index))
     };
 };
 

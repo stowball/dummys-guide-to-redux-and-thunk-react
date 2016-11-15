@@ -38,3 +38,10 @@ export function itemsFetchData(url) {
             .catch(() => dispatch(itemsHasErrored(true)));
     };
 }
+
+export function itemsRemoveItem(index) {
+    return {
+        type: 'ITEMS_REMOVE_ITEM',
+        index
+    };
+}
