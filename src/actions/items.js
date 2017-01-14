@@ -1,27 +1,29 @@
-export function itemsHasErrored(bool) {
+import {
+    GET_ITEMS_REQUEST, GET_ITEMS_SUCCESS, GET_ITEMS_FAILURE
+} from './actionTypes';
+
+function getItemsRequest() {
     return {
-        type: 'ITEMS_HAS_ERRORED',
-        hasErrored: bool
+        type: GET_ITEMS_REQUEST
     };
 }
 
-export function itemsIsLoading(bool) {
+function getItemsSuccess(result) {
     return {
-        type: 'ITEMS_IS_LOADING',
-        isLoading: bool
+        type: GET_ITEMS_SUCCESS,
+        result
     };
 }
 
-export function itemsFetchDataSuccess(items) {
+function getItemsFailure() {
     return {
-        type: 'ITEMS_FETCH_DATA_SUCCESS',
-        items
+        type: GET_ITEMS_FAILURE
     };
 }
 
-export function itemsFetchData(url) {
+export function getItems(url) {
     return (dispatch) => {
-        dispatch(itemsIsLoading(true));
+        dispatch(getItemsRequest());
 
         fetch(url)
             .then((response) => {
@@ -29,12 +31,10 @@ export function itemsFetchData(url) {
                     throw Error(response.statusText);
                 }
 
-                dispatch(itemsIsLoading(false));
-
                 return response;
             })
             .then((response) => response.json())
-            .then((items) => dispatch(itemsFetchDataSuccess(items)))
-            .catch(() => dispatch(itemsHasErrored(true)));
+            .then((items) => dispatch(getItemsSuccess(items)))
+            .catch(response => dispatch(getItemsFailure()));
     };
 }

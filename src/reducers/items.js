@@ -1,29 +1,51 @@
-export function itemsHasErrored(state = false, action) {
-    switch (action.type) {
-        case 'ITEMS_HAS_ERRORED':
-            return action.hasErrored;
+import {
+    GET_ITEMS_REQUEST, GET_ITEMS_SUCCESS, GET_ITEMS_FAILURE
+} from '../actions/actionTypes';
+
+export const hasError = (state = false, action) => {
+    const { type } = action;
+
+    switch (type) {
+        case GET_ITEMS_FAILURE:
+            return true;
+
+        case GET_ITEMS_REQUEST:
+            return false;
+
+        case GET_ITEMS_SUCCESS:
+            return false;
 
         default:
             return state;
     }
-}
+};
 
-export function itemsIsLoading(state = false, action) {
-    switch (action.type) {
-        case 'ITEMS_IS_LOADING':
-            return action.isLoading;
+export const isFetching = (state = false, action) => {
+    const { type } = action;
 
-        default:
-            return state;
-    }
-}
+    switch (type) {
+        case GET_ITEMS_REQUEST:
+            return true;
 
-export function items(state = [], action) {
-    switch (action.type) {
-        case 'ITEMS_FETCH_DATA_SUCCESS':
-            return action.items;
+        case GET_ITEMS_FAILURE:
+            return false;
+
+        case GET_ITEMS_SUCCESS:
+            return false;
 
         default:
             return state;
     }
-}
+};
+
+export const items = (state = [], action) => {
+    const { type, result } = action;
+
+    switch (type) {
+        case GET_ITEMS_SUCCESS:
+            return result;
+
+        default:
+            return state;
+    }
+};
