@@ -1,7 +1,7 @@
 {
-  "name": "dummys-guide-to-redux-and-thunk-react",
+  "name": "redux-and-thunk-react",
   "version": "1.0.0",
-  "description": "A Dummy's Guide to Redux and Thunk in React",
+  "description": "Practicing Redux and Thunk in React",
   "private": true,
   "scripts": {
     "build": "nwb build-react-app",
