@@ -6,9 +6,11 @@
   "scripts": {
     "build": "nwb build-react-app",
     "clean": "nwb clean-app",
-    "start": "nwb serve-react-app"
+    "start-local": "nwb serve-react-app",
+    "start": "node server.js"
   },
   "dependencies": {
+    "express": "^4.16.2",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-redux": "^4.4.5",
