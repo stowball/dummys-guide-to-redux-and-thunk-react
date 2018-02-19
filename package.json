@@ -1,7 +1,7 @@
 {
   "name": "redux-and-thunk-react",
   "version": "1.0.0",
-  "description": "Practicing Redux and Thunk in React",
+  "description": "Hands on Redux and Thunk in React",
   "private": true,
   "scripts": {
     "build": "nwb build-react-app",
