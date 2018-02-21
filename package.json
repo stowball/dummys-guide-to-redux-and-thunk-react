@@ -6,16 +6,17 @@
   "scripts": {
     "build": "nwb build-react-app",
     "clean": "nwb clean-app",
-    "start-local": "nwb serve-react-app",
-    "start": "node server.js"
+    "start": "nwb serve-react-app"
   },
   "dependencies": {
     "express": "^4.16.2",
+    "jsforce": "^1.8.0",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-redux": "^4.4.5",
     "redux": "^3.6.0",
-    "redux-thunk": "^2.1.0"
+    "redux-thunk": "^2.1.0",
+    "url": "^0.11.0"
   },
   "devDependencies": {
     "babel-eslint": "^7.1.0",
