@@ -4,7 +4,7 @@ var jsforce = require('jsforce');
 var url = require('url');
 
 app.get('/', function (req, res) {
-  res.sendFile(__dirname + '/dist/index.html');
+  res.sendFile(__dirname + '/index.html');
 });
 
 app.get('/login', function (req, res) {
