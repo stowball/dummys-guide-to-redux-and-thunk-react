@@ -1,7 +1,7 @@
 {
-  "name": "dummys-guide-to-redux-and-thunk-react",
+  "name": "redux-and-thunk-react",
   "version": "1.0.0",
-  "description": "A Dummy's Guide to Redux and Thunk in React",
+  "description": "Hands on Redux and Thunk in React",
   "private": true,
   "scripts": {
     "build": "nwb build-react-app",
@@ -9,11 +9,14 @@
     "start": "nwb serve-react-app"
   },
   "dependencies": {
+    "express": "^4.16.2",
+    "jsforce": "^1.8.0",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-redux": "^4.4.5",
     "redux": "^3.6.0",
-    "redux-thunk": "^2.1.0"
+    "redux-thunk": "^2.1.0",
+    "url": "^0.11.0"
   },
   "devDependencies": {
     "babel-eslint": "^7.1.0",
