@@ -1,33 +1,31 @@
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { itemsFetchData } from '../actions/items';
 import PropTypes from 'prop-types';
 
-class ItemList extends Component {
-    componentDidMount() {
-        this.props.fetchData('http://599167402df2f40011e4929a.mockapi.io/items');
+const ItemList = (props) => {
+    useEffect(() => {
+        props.fetchData('http://599167402df2f40011e4929a.mockapi.io/items');
+    }, []);
+
+    if (props.hasErrored) {
+        return <p>Sorry! There was an error loading the items</p>;
     }
 
-    render() {
-        if (this.props.hasErrored) {
-            return <p>Sorry! There was an error loading the items</p>;
-        }
-
-        if (this.props.isLoading) {
-            return <p>Loading…</p>;
-        }
-
-        return (
-            <ul>
-                {this.props.items.map((item) => (
-                    <li key={item.id}>
-                        {item.label}
-                    </li>
-                ))}
-            </ul>
-        );
+    if (props.isLoading) {
+        return <p>Loading…</p>;
     }
-}
+
+    return (
+        <ul>
+          {props.items.map((item) => (
+              <li key={item.id}>
+                {item.label}
+              </li>
+          ))}
+        </ul>
+    );
+};
 
 ItemList.propTypes = {
     fetchData: PropTypes.func.isRequired,
