@@ -1,6 +1,6 @@
 # A Dummy's Guide to Redux and Thunk in React
 
-The demo app for my blog post. It is not an example of writing best-practice markup or React JavaScript, it's just the bare minimum to demonstrate how to use Redux and Redux Thunk.
+The demo app for my blog post, updated use stateless components and work with React 16 and React-Redux 7. It is not an example of writing best-practice markup or React JavaScript, it's just the bare minimum to demonstrate how to use Redux and Redux Thunk.
 
 ## Prerequisites
 
